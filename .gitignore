@@ -1,0 +1,4 @@
+.env
+build/*
+sqlboiler.toml
+conf/conf.yaml

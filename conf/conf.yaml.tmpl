@@ -1,0 +1,48 @@
+app:
+    env: "local"
+    http_server:
+        host: "localhost"
+        port: 8081
+        read_timeout: 60s
+        write_timeout: 60s
+    swagger:
+        description: "API Documentation of accountsvc"
+        host: "localhost"
+        port: 8081
+        oauth2_password_token_url: "http://localhost:8081/api/oauth2"
+    psql:
+        name: "carrent_accountdb"
+        host: "localhost"
+        port: 5432
+        user_name: "dev"
+        password: "12345678"
+        ssl_mode: "disable"
+        max_open_connection: 5
+        max_idle_connection: 5
+        max_lifetime: 5
+        debug_mode: true
+        migration_path: "file://./migrations"
+    redis:
+        url: "localhost:6379"
+        password: ""
+        user_name: ""
+        pool_size: 10
+        max_retries: 3
+rest:
+    account:
+        token_secret: "aS53hs8kahs912"
+usecase:
+    account:
+        token_secret: "aS53hs8kahs912"
+        aes_secret: "62157hasjhjas"
+        token_timeout: 5h
+domain:
+    account:
+        page_limit: 10
+        expiration_time: 30s
+    account_role:
+        page_limit: 10
+        expiration_time: 30s
+    role:
+        page_limit: 10
+        expiration_time: 30s

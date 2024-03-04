@@ -1,0 +1,2 @@
+DELETE FROM roles WHERE id in (1, 2, 3);
+ALTER SEQUENCE role_id_seq RESTART WITH 1;

@@ -1,0 +1,67 @@
+version: '3.9'
+services:
+  app:
+    container_name: accountsvc
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - DATABASE_HOST=${DB_HOST}
+      - DATABASE_PORT=${DB_PORT}
+    tty: true
+    build:
+      context: .
+      dockerfile: ./script/Dockerfile
+    ports:
+      - 8081:8081
+    restart: on-failure
+    command: bash -c "
+      /app/app -migrateup=true &&
+      /app/app"
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgresql:
+        condition: service_healthy
+    networks:
+      - orient_net
+  redis:
+    container_name: redis_container
+    image: redis:7.2-alpine
+    restart: always
+    ports:
+      - '6380:6379'
+    volumes: 
+      - redis:/data
+    command: redis-server
+    networks:
+      - orient_net
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+  postgresql:
+    image: postgres:16.2-alpine
+    container_name: postgresql_container
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - DATABASE_HOST=${DB_HOST}
+    ports:
+      - '5432:5432'
+    volumes: 
+      - postgresql:/data
+    networks:
+      - orient_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  postgresql:
+    driver: local
+  redis:
+    driver: local
+networks:
+  orient_net:
+    driver: bridge

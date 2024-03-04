@@ -1,0 +1,17 @@
+output   = "src/model/psqlmodel"
+pkgname  = "psqlmodel"
+wipe     = true
+no-tests = false
+add-enum-types = true
+
+[psql]
+  dbname = "account_db"
+  host   = "localhost"
+  port   = 5432
+  user   = "dev"
+  pass   = "12345678"
+  sslmode = "disable"
+
+[auto-columns]
+    created = "created_at"
+    updated = "updated_at"
