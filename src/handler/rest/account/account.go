@@ -164,6 +164,7 @@ func (a *AccountDep) CurrentAccount(ctx *gin.Context) {
 // @Accept json
 // @Produce json
 // @Security OAuth2Password
+// @Param data body model.UpdateAccountData true "Update Account Data"
 // @Success 200 {object} model.SingleAccountResponse
 // @Success 400 {object} model.SingleAccountResponse
 // @Success 401 {object} model.SingleAccountResponse
@@ -209,6 +210,7 @@ func (a *AccountDep) UpdateCurrentAccount(ctx *gin.Context) {
 // @Accept json
 // @Produce json
 // @Security OAuth2Password
+// @Param data body model.UpdatePasswordData true "Update Account Data"
 // @Success 200 {object} model.SingleAccountResponse
 // @Success 400 {object} model.SingleAccountResponse
 // @Success 401 {object} model.SingleAccountResponse

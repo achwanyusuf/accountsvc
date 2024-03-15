@@ -77,6 +77,8 @@ github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 h1:d+Bc7a5rLufV
 github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578/go.mod h1:uGdkoq3SwY9Y+13GIhn11/XLaGBb4BfwItxLd5jeuXE=
 github.com/achwanyusuf/carrent-lib v1.2.2 h1:dZwuGOiywFffxOFI9XjamaKUm4esI+NgVQk2W3UJqJU=
 github.com/achwanyusuf/carrent-lib v1.2.2/go.mod h1:OUXflzWFHzJYni4MFgm70YgZ9dzdY+IbnCnHEZgKdPw=
+github.com/achwanyusuf/carrent-lib v1.8.0 h1:/vUXRqNKMWdxS28nJGzPY9ShAN2whm1nJNMEHfud1BI=
+github.com/achwanyusuf/carrent-lib v1.8.0/go.mod h1:5Tv8wWfN+5HaiG05Db9R4eThPK+8+LtTpXgMLD2qM2U=
 github.com/alecthomas/template v0.0.0-20160405071501-a0175ee3bccc/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf/go.mod h1:ybxpYRFXyAe+OPACYpWeL0wqObRcbAqCMya13uyzqw0=

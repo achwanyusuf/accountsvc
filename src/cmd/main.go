@@ -60,7 +60,7 @@ func main() {
 	psql := psql.PsqlConnect(cfg.App.PSQL)
 
 	if migrateup {
-		err = migration.Migrate(psql, cfg.App.PSQL.MigrationPath, true)
+		err = migration.Migrate(psql, cfg.App.PSQL.MigrationPath, true, "accountsvc_schema_migrations")
 		if err != nil {
 			log.Error(context.Background(), err)
 		}
@@ -68,7 +68,7 @@ func main() {
 	}
 
 	if migratedown {
-		err = migration.Migrate(psql, cfg.App.PSQL.MigrationPath, false)
+		err = migration.Migrate(psql, cfg.App.PSQL.MigrationPath, false, "accountsvc_schema_migrations")
 		if err != nil {
 			log.Error(context.Background(), err)
 		}

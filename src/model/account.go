@@ -55,11 +55,11 @@ func (l *Login) Validate() error {
 		return errormsg.WrapErr(svcerr.AccountSVCInvalidEmptyPassword, nil, "invalid empty password")
 	}
 
-	if len(l.Password) < 5 {
+	if len(l.Password) < 8 {
 		return errormsg.WrapErr(svcerr.AccountSVCInvalidMinimumPassword, nil, "invalid minimum password")
 	}
 
-	if len(l.Password) > 8 {
+	if len(l.Password) > 20 {
 		return errormsg.WrapErr(svcerr.AccountSVCInvalidMaximumPassword, nil, "invalid maximum password")
 	}
 	return nil
